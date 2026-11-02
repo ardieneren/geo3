@@ -1,0 +1,17 @@
+{
+  "name": "geometry-board",
+  "version": "1.0.0",
+  "description": "Geometry Board",
+  "main": "main.js",
+  "author": "Geometry Board",
+  "scripts": { "start": "electron .", "build": "electron-builder --publish never" },
+  "devDependencies": { "electron": "^33.0.0", "electron-builder": "^25.0.0" },
+  "build": {
+    "appId": "com.local.geometryboard",
+    "productName": "Geometry Board",
+    "files": ["main.js", "index.html"],
+    "win": { "target": "portable" },
+    "mac": { "target": "dmg" },
+    "linux": { "target": "AppImage" }
+  }
+}
