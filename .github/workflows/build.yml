@@ -1,0 +1,55 @@
+name: Build app
+
+on: [workflow_dispatch, push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        working-directory: ./geometry-board-app
+        run: npm install
+
+      - name: Build application
+        working-directory: ./geometry-board-app
+        run: npm run build
+
+      - name: Upload application
+        uses: actions/upload-artifact@v4
+        with:
+          name: Geometry-Board-Windows
+          path: geometry-board-app/dist/*.exename: Build app
+
+on: [workflow_dispatch, push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        working-directory: ./geometry-board-app
+        run: npm install
+
+      - name: Build application
+        working-directory: ./geometry-board-app
+        run: npm run build
+
+      - name: Upload application
+        uses: actions/upload-artifact@v4
+        with:
+          name: Geometry-Board-Windows
+          path: geometry-board-app/dist/*.exe
